@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainGfxJeI.ui'
+## Form generated from reading UI file 'mainNLFbdq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QGroupBox,
     QHBoxLayout, QLabel, QMainWindow, QMenu,
     QMenuBar, QProgressBar, QSizePolicy, QStackedWidget,
     QVBoxLayout, QWidget)
-import resources_rc
+import resource_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -265,7 +265,7 @@ class Ui_MainWindow(object):
         self.page.setObjectName(u"page")
         self.label_12 = QLabel(self.page)
         self.label_12.setObjectName(u"label_12")
-        self.label_12.setGeometry(QRect(160, 270, 67, 17))
+        self.label_12.setGeometry(QRect(160, 270, 131, 17))
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
@@ -295,7 +295,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

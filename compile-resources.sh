@@ -2,4 +2,4 @@
 
 source venv/bin/activate
 
-pyside6-rcc ui/compiled/resource.qrc -o resources_rc.py
+pyside6-rcc ui/compiled/resource.qrc -o resource_rc.py

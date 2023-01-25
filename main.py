@@ -2,33 +2,35 @@ import math
 import sys
 import psutil
 import igpu
-from PySide6 import QtCore, QtWidgets
+from PySide6 import QtCore
+from PySide6.QtWidgets import QMainWindow, QApplication
+from PySide6.QtCore import QTimer
 
 from ui.compiled.main import Ui_MainWindow
 
 
-class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self) -> None:
         super(MainWindow, self).__init__()
         self.setupUi(self)
 
         self.frequency_update = 1000
 
-        self.load_cpu_info_timer = QtCore.QTimer()
+        self.load_cpu_info_timer = QTimer()
         self.load_cpu_info_timer.setInterval(self.frequency_update)
         self.load_cpu_info_timer.timeout.connect(self.load_cpu_info)
         self.load_cpu_info_timer.start()
 
-        self.load_mem_info_timer = QtCore.QTimer()
+        self.load_mem_info_timer = QTimer()
         self.load_mem_info_timer.setInterval(self.frequency_update)
         self.load_mem_info_timer.timeout.connect(self.load_mem_info)
         self.load_mem_info_timer.start()
 
-        self.load_gpu_info_timer = QtCore.QTimer()
+        self.load_gpu_info_timer = QTimer()
         self.load_gpu_info_timer.setInterval(self.frequency_update)
         self.load_gpu_info_timer.timeout.connect(self.load_gpu_info)
         self.load_gpu_info_timer.start()
-        
+
         self.load_cpu_info()
         self.load_gpu_info()
         self.load_mem_info()
@@ -56,7 +58,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.lbl_gpu_temp.setText(f"{card.utilization.temperature}°C")
             self.lbl_gpu_fan_speed.setText(f"{card.utilization.fan}%")
 
-
     def convert_size(self, size_bytes):
         if size_bytes == 0:
             return "0B"
@@ -67,7 +68,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         return "%s %s" % (s, size_name[i])
 
 
-app = QtWidgets.QApplication(sys.argv)
+app = QApplication(sys.argv)
 window = MainWindow()
 window.show()
 app.exec_()
